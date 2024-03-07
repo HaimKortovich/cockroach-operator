@@ -3,12 +3,12 @@ entries:
   cockroach-operator:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-03-07T12:42:20.083094-05:00"
+    created: "2024-03-07T14:30:13.589731-05:00"
     description: A Helm chart for Kubernetes
-    digest: d0bcd7d3fea453af49f6f9c9c4e4a27f6f01a4467b4690932218fea0bc057f6b
+    digest: bb45b8c393e9aa36149f0a922377c81d94b52a51f9f4529661c104f2f28f59fc
     name: cockroach-operator
     type: application
     urls:
     - https://raw.githubusercontent.com/HaimKortovich/cockroach-operator/master/docs/cockroach-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-07T12:42:20.082023-05:00"
+generated: "2024-03-07T14:30:13.587421-05:00"
