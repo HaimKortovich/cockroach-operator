@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   cockroach-operator:
   - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2024-03-07T14:40:20.861394-05:00"
+    description: A Helm chart for Kubernetes
+    digest: a525e03f6c5dd265463c0909cee9a1ab5493bba00f2ca610aa43f8ce038e1254
+    name: cockroach-operator
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/HaimKortovich/cockroach-operator/master/docs/cockroach-operator-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-03-07T14:33:03.502075-05:00"
+    created: "2024-03-07T14:40:20.860561-05:00"
     description: A Helm chart for Kubernetes
     digest: 1fdb572b889b8e45fc91b7f8c008c2861b494f81ac1bda256a1d9aadab170888
     name: cockroach-operator
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/HaimKortovich/cockroach-operator/master/docs/cockroach-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-07T14:33:03.500421-05:00"
+generated: "2024-03-07T14:40:20.858858-05:00"
