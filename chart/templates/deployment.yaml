@@ -1,0 +1,407 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cockroach-operator.fullname" . }}-manager
+  labels:
+    app: cockroach-operator
+  {{- include "cockroach-operator.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.manager.replicas }}
+  selector:
+    matchLabels:
+      app: cockroach-operator
+    {{- include "cockroach-operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: cockroach-operator
+      {{- include "cockroach-operator.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - args: {{- toYaml .Values.manager.cockroachOperator.args | nindent 8 }}
+        env:
+        - name: RELATED_IMAGE_COCKROACH_v20_1_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2014
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2015
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2018
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20111
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20112
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20113
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20115
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20116
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_1_17
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20117
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2020
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2021
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2022
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2023
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2024
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2025
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_6
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2026
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2028
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_9
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2029
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20210
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20211
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20212
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20213
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20214
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20215
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20216
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_17
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20217
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_18
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20218
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v20_2_19
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV20219
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2110
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2111
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2112
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2113
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2114
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2115
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_6
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2116
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_7
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2117
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_9
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2119
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21110
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21111
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21112
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21113
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21114
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21115
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21116
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_17
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21117
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_18
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21118
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_19
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21119
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_20
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21120
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_1_21
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21121
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2120
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2121
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2122
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2123
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2124
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2125
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_7
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2127
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2128
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_9
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2129
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21210
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21211
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21212
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21213
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21214
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21215
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21216
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v21_2_17
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV21217
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2210
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2211
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2212
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2213
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2214
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2215
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_7
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2217
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2218
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22110
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22111
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22112
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22113
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22114
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22115
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22116
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_18
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22118
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_20
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22120
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_1_22
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22122
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2220
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2221
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2222
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2223
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2224
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2225
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_6
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2226
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_7
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2227
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2228
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_9
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2229
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22210
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22212
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22214
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22215
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22216
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_17
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22217
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_18
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22218
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v22_2_19
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV22219
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2310
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2311
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2312
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_3
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2313
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_4
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2314
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_5
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2315
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_6
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2316
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_7
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2317
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_8
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2318
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_9
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2319
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_10
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23110
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_11
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23111
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_12
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23112
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_13
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23113
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_14
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23114
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_15
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23115
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_1_16
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV23116
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_2_0
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2320
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_2_1
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2321
+            }}
+        - name: RELATED_IMAGE_COCKROACH_v23_2_2
+          value: {{ quote .Values.manager.cockroachOperator.env.relatedImageCockroachV2322
+            }}
+        - name: OPERATOR_NAME
+          value: {{ quote .Values.manager.cockroachOperator.env.operatorName }}
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.manager.cockroachOperator.image.repository }}:{{ .Values.manager.cockroachOperator.image.tag
+          | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.manager.cockroachOperator.imagePullPolicy }}
+        name: cockroach-operator
+        resources: {{- toYaml .Values.manager.cockroachOperator.resources | nindent 10
+          }}
+      serviceAccountName: {{ include "cockroach-operator.fullname" . }}-sa

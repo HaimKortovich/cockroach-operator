@@ -1,0 +1,147 @@
+kubernetesClusterDomain: cluster.local
+manager:
+  cockroachOperator:
+    args:
+    - -zap-log-level
+    - info
+    env:
+      operatorName: cockroachdb
+      relatedImageCockroachV2014: cockroachdb/cockroach:v20.1.4
+      relatedImageCockroachV2015: cockroachdb/cockroach:v20.1.5
+      relatedImageCockroachV2018: cockroachdb/cockroach:v20.1.8
+      relatedImageCockroachV2020: cockroachdb/cockroach:v20.2.0
+      relatedImageCockroachV2021: cockroachdb/cockroach:v20.2.1
+      relatedImageCockroachV2022: cockroachdb/cockroach:v20.2.2
+      relatedImageCockroachV2023: cockroachdb/cockroach:v20.2.3
+      relatedImageCockroachV2024: cockroachdb/cockroach:v20.2.4
+      relatedImageCockroachV2025: cockroachdb/cockroach:v20.2.5
+      relatedImageCockroachV2026: cockroachdb/cockroach:v20.2.6
+      relatedImageCockroachV2028: cockroachdb/cockroach:v20.2.8
+      relatedImageCockroachV2029: cockroachdb/cockroach:v20.2.9
+      relatedImageCockroachV2110: cockroachdb/cockroach:v21.1.0
+      relatedImageCockroachV2111: cockroachdb/cockroach:v21.1.1
+      relatedImageCockroachV2112: cockroachdb/cockroach:v21.1.2
+      relatedImageCockroachV2113: cockroachdb/cockroach:v21.1.3
+      relatedImageCockroachV2114: cockroachdb/cockroach:v21.1.4
+      relatedImageCockroachV2115: cockroachdb/cockroach:v21.1.5
+      relatedImageCockroachV2116: cockroachdb/cockroach:v21.1.6
+      relatedImageCockroachV2117: cockroachdb/cockroach:v21.1.7
+      relatedImageCockroachV2119: cockroachdb/cockroach:v21.1.9
+      relatedImageCockroachV2120: cockroachdb/cockroach:v21.2.0
+      relatedImageCockroachV2121: cockroachdb/cockroach:v21.2.1
+      relatedImageCockroachV2122: cockroachdb/cockroach:v21.2.2
+      relatedImageCockroachV2123: cockroachdb/cockroach:v21.2.3
+      relatedImageCockroachV2124: cockroachdb/cockroach:v21.2.4
+      relatedImageCockroachV2125: cockroachdb/cockroach:v21.2.5
+      relatedImageCockroachV2127: cockroachdb/cockroach:v21.2.7
+      relatedImageCockroachV2128: cockroachdb/cockroach:v21.2.8
+      relatedImageCockroachV2129: cockroachdb/cockroach:v21.2.9
+      relatedImageCockroachV2210: cockroachdb/cockroach:v22.1.0
+      relatedImageCockroachV2211: cockroachdb/cockroach:v22.1.1
+      relatedImageCockroachV2212: cockroachdb/cockroach:v22.1.2
+      relatedImageCockroachV2213: cockroachdb/cockroach:v22.1.3
+      relatedImageCockroachV2214: cockroachdb/cockroach:v22.1.4
+      relatedImageCockroachV2215: cockroachdb/cockroach:v22.1.5
+      relatedImageCockroachV2217: cockroachdb/cockroach:v22.1.7
+      relatedImageCockroachV2218: cockroachdb/cockroach:v22.1.8
+      relatedImageCockroachV2220: cockroachdb/cockroach:v22.2.0
+      relatedImageCockroachV2221: cockroachdb/cockroach:v22.2.1
+      relatedImageCockroachV2222: cockroachdb/cockroach:v22.2.2
+      relatedImageCockroachV2223: cockroachdb/cockroach:v22.2.3
+      relatedImageCockroachV2224: cockroachdb/cockroach:v22.2.4
+      relatedImageCockroachV2225: cockroachdb/cockroach:v22.2.5
+      relatedImageCockroachV2226: cockroachdb/cockroach:v22.2.6
+      relatedImageCockroachV2227: cockroachdb/cockroach:v22.2.7
+      relatedImageCockroachV2228: cockroachdb/cockroach:v22.2.8
+      relatedImageCockroachV2229: cockroachdb/cockroach:v22.2.9
+      relatedImageCockroachV2310: cockroachdb/cockroach:v23.1.0
+      relatedImageCockroachV2311: cockroachdb/cockroach:v23.1.1
+      relatedImageCockroachV2312: cockroachdb/cockroach:v23.1.2
+      relatedImageCockroachV2313: cockroachdb/cockroach:v23.1.3
+      relatedImageCockroachV2314: cockroachdb/cockroach:v23.1.4
+      relatedImageCockroachV2315: cockroachdb/cockroach:v23.1.5
+      relatedImageCockroachV2316: cockroachdb/cockroach:v23.1.6
+      relatedImageCockroachV2317: cockroachdb/cockroach:v23.1.7
+      relatedImageCockroachV2318: cockroachdb/cockroach:v23.1.8
+      relatedImageCockroachV2319: cockroachdb/cockroach:v23.1.9
+      relatedImageCockroachV2320: cockroachdb/cockroach:v23.2.0
+      relatedImageCockroachV2321: cockroachdb/cockroach:v23.2.1
+      relatedImageCockroachV2322: cockroachdb/cockroach:v23.2.2
+      relatedImageCockroachV20111: cockroachdb/cockroach:v20.1.11
+      relatedImageCockroachV20112: cockroachdb/cockroach:v20.1.12
+      relatedImageCockroachV20113: cockroachdb/cockroach:v20.1.13
+      relatedImageCockroachV20115: cockroachdb/cockroach:v20.1.15
+      relatedImageCockroachV20116: cockroachdb/cockroach:v20.1.16
+      relatedImageCockroachV20117: cockroachdb/cockroach:v20.1.17
+      relatedImageCockroachV20210: cockroachdb/cockroach:v20.2.10
+      relatedImageCockroachV20211: cockroachdb/cockroach:v20.2.11
+      relatedImageCockroachV20212: cockroachdb/cockroach:v20.2.12
+      relatedImageCockroachV20213: cockroachdb/cockroach:v20.2.13
+      relatedImageCockroachV20214: cockroachdb/cockroach:v20.2.14
+      relatedImageCockroachV20215: cockroachdb/cockroach:v20.2.15
+      relatedImageCockroachV20216: cockroachdb/cockroach:v20.2.16
+      relatedImageCockroachV20217: cockroachdb/cockroach:v20.2.17
+      relatedImageCockroachV20218: cockroachdb/cockroach:v20.2.18
+      relatedImageCockroachV20219: cockroachdb/cockroach:v20.2.19
+      relatedImageCockroachV21110: cockroachdb/cockroach:v21.1.10
+      relatedImageCockroachV21111: cockroachdb/cockroach:v21.1.11
+      relatedImageCockroachV21112: cockroachdb/cockroach:v21.1.12
+      relatedImageCockroachV21113: cockroachdb/cockroach:v21.1.13
+      relatedImageCockroachV21114: cockroachdb/cockroach:v21.1.14
+      relatedImageCockroachV21115: cockroachdb/cockroach:v21.1.15
+      relatedImageCockroachV21116: cockroachdb/cockroach:v21.1.16
+      relatedImageCockroachV21117: cockroachdb/cockroach:v21.1.17
+      relatedImageCockroachV21118: cockroachdb/cockroach:v21.1.18
+      relatedImageCockroachV21119: cockroachdb/cockroach:v21.1.19
+      relatedImageCockroachV21120: cockroachdb/cockroach:v21.1.20
+      relatedImageCockroachV21121: cockroachdb/cockroach:v21.1.21
+      relatedImageCockroachV21210: cockroachdb/cockroach:v21.2.10
+      relatedImageCockroachV21211: cockroachdb/cockroach:v21.2.11
+      relatedImageCockroachV21212: cockroachdb/cockroach:v21.2.12
+      relatedImageCockroachV21213: cockroachdb/cockroach:v21.2.13
+      relatedImageCockroachV21214: cockroachdb/cockroach:v21.2.14
+      relatedImageCockroachV21215: cockroachdb/cockroach:v21.2.15
+      relatedImageCockroachV21216: cockroachdb/cockroach:v21.2.16
+      relatedImageCockroachV21217: cockroachdb/cockroach:v21.2.17
+      relatedImageCockroachV22110: cockroachdb/cockroach:v22.1.10
+      relatedImageCockroachV22111: cockroachdb/cockroach:v22.1.11
+      relatedImageCockroachV22112: cockroachdb/cockroach:v22.1.12
+      relatedImageCockroachV22113: cockroachdb/cockroach:v22.1.13
+      relatedImageCockroachV22114: cockroachdb/cockroach:v22.1.14
+      relatedImageCockroachV22115: cockroachdb/cockroach:v22.1.15
+      relatedImageCockroachV22116: cockroachdb/cockroach:v22.1.16
+      relatedImageCockroachV22118: cockroachdb/cockroach:v22.1.18
+      relatedImageCockroachV22120: cockroachdb/cockroach:v22.1.20
+      relatedImageCockroachV22122: cockroachdb/cockroach:v22.1.22
+      relatedImageCockroachV22210: cockroachdb/cockroach:v22.2.10
+      relatedImageCockroachV22212: cockroachdb/cockroach:v22.2.12
+      relatedImageCockroachV22214: cockroachdb/cockroach:v22.2.14
+      relatedImageCockroachV22215: cockroachdb/cockroach:v22.2.15
+      relatedImageCockroachV22216: cockroachdb/cockroach:v22.2.16
+      relatedImageCockroachV22217: cockroachdb/cockroach:v22.2.17
+      relatedImageCockroachV22218: cockroachdb/cockroach:v22.2.18
+      relatedImageCockroachV22219: cockroachdb/cockroach:v22.2.19
+      relatedImageCockroachV23110: cockroachdb/cockroach:v23.1.10
+      relatedImageCockroachV23111: cockroachdb/cockroach:v23.1.11
+      relatedImageCockroachV23112: cockroachdb/cockroach:v23.1.12
+      relatedImageCockroachV23113: cockroachdb/cockroach:v23.1.13
+      relatedImageCockroachV23114: cockroachdb/cockroach:v23.1.14
+      relatedImageCockroachV23115: cockroachdb/cockroach:v23.1.15
+      relatedImageCockroachV23116: cockroachdb/cockroach:v23.1.16
+    image:
+      repository: cockroachdb/cockroach-operator
+      tag: v2.12.0
+    imagePullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 10m
+        memory: 32Mi
+  replicas: 1
+sa:
+  serviceAccount:
+    annotations: {}
+webhookService:
+  ports:
+  - port: 443
+    targetPort: 9443
+  type: ClusterIP
