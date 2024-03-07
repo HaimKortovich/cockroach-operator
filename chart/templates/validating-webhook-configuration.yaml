@@ -11,7 +11,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: '{{ include "cockroach-operator.fullname" . }}-webhook-service'
+      name: cockroach-operator-webhook-service
       namespace: '{{ .Release.Namespace }}'
       path: /validate-crdb-cockroachlabs-com-v1alpha1-crdbcluster
   failurePolicy: Fail
