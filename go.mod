@@ -120,10 +120,3 @@ require (
 )
 
 replace k8s.io/client-go => k8s.io/client-go v0.29.0
-
-// indirect dependencies that need to be updated
-replace github.com/gin-gonic/gin v1.4.0 => github.com/gin-gonic/gin v1.7.0
-
-replace github.com/nats-io/nats-server/v2 v2.1.2 => github.com/nats-io/nats-server/v2 v2.2.0
-
-replace github.com/opencontainers/runc v1.0.0-rc91 => github.com/opencontainers/runc v1.0.2
