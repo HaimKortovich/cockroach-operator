@@ -26,6 +26,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 )
 
 var (
@@ -84,7 +85,7 @@ func (r *CrdbCluster) Default() {
 // +kubebuilder:webhook:path=/validate-crdb-cockroachlabs-com-v1alpha1-crdbcluster,mutating=false,failurePolicy=fail,groups=crdb.cockroachlabs.com,resources=crdbclusters,verbs=create;update,versions=v1alpha1,name=vcrdbcluster.kb.io,sideEffects=None,admissionReviewVersions=v1
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type.
-func (r *CrdbCluster) ValidateCreate() error {
+func (r *CrdbCluster) ValidateCreate() (admission.Warnings, error) {
 	webhookLog.Info("validate create", "name", r.Name)
 	var errors []error
 	if r.Spec.Ingress != nil {
@@ -102,14 +103,14 @@ func (r *CrdbCluster) ValidateCreate() error {
 	}
 
 	if len(errors) != 0 {
-		return kerrors.NewAggregate(errors)
+		return nil, kerrors.NewAggregate(errors)
 	}
 
-	return nil
+	return []string{}, nil
 }
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type.
-func (r *CrdbCluster) ValidateUpdate(old runtime.Object) error {
+func (r *CrdbCluster) ValidateUpdate(old runtime.Object) (admission.Warnings, error) {
 	webhookLog.Info("validate update", "name", r.Name)
 	var errors []error
 
@@ -136,18 +137,18 @@ func (r *CrdbCluster) ValidateUpdate(old runtime.Object) error {
 	}
 
 	if len(errors) != 0 {
-		return kerrors.NewAggregate(errors)
+		return nil, kerrors.NewAggregate(errors)
 	}
 
-	return nil
+	return []string{}, nil
 }
 
 // ValidateDelete implements webhook.Validator so a webhook will be registered for the type.
-func (r *CrdbCluster) ValidateDelete() error {
+func (r *CrdbCluster) ValidateDelete() (admission.Warnings, error) {
 	webhookLog.Info("validate delete", "name", r.Name)
 
 	// we're not validating anything on delete. This is just a placeholder for now to satisfy the Validator interface
-	return nil
+	return []string{}, nil
 }
 
 // ValidateIngress validates the ingress configuration used to create ingress resource
